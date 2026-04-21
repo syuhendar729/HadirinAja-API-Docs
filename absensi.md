@@ -25,12 +25,12 @@ Response Body - Success:
 // A: tidak hadir
 {
     "data": {
-        "2025-nov-01": "H",
-        "2025-nov-02": "H",
-        "2025-nov-03": "A",
-        "2025-nov-04": "I",
+        "2025-11-01": "HADIR",
+        "2025-11-02": "HADIR",
+        "2025-11-03": "ALPHA",
+        "2025-11-04": "IZIN",
         // ...
-        "2026-mar-29": "H",
+        "2026-03-29": "HADIR",
     },
     "message": "Success get attendance!"
 }
@@ -47,7 +47,7 @@ Response Body - Error:
 
 ---
 
-## 2. Present
+## 2. Create Attendance
 
 Method: `POST`
 Endpoint: `/attendances`
@@ -55,47 +55,35 @@ Endpoint: `/attendances`
 Request Body:
 ```json
 {
-    "date": "2025-mar-28",
-    "time": "08:00 AM",
+    "status": "HADIR",
     "location": "Institut Teknologi Sumatera",
-    "url_image": "https://cloud.image/2025-mar-28.jpg"
+    "notes": "Hadir tapi terlambat",
 }
 ```
 
 Response Body - Success:
 ```json
 {
-    "data": {
-        "date": "2025-mar-28",
-        "time": "08:00 AM",
-        "location": "Institut Teknologi Sumatera",
-        "url_image": "https://cloud.image/2025-mar-28.jpg"
-    },
-    "message": "Success create attendance!"
+	"data": {
+		"status": "HADIR",
+		"location": "Institut Teknologi Sumatera",
+		"notes": "Hadir tapi terlambat"
+	},
+	"message": "Success create attendance!"
 }
 ```
 
 Response Body - Error:
 ```json
-// invalid date or time
-{
-    "data": {
-        "date": "2025-mar-28",
-        "time": "08:00 AM",
-    },
-    "message": "Failed attendance user! Invalid date or time."
-}
 // user unauthorized
 {
     "data": [],
     "message": "Failed attendance user! User unauthorized."
 }
-// invalid url image
+// invalid input
 {
-    "data": {
-        "url_image": "https://cloud.image/2025-mar-28.jpg"
-    }],
-    "message": "Failed attendance user! Invalid Date or Time."
+    "data": [],
+    "message": "Failed attendance user! Invalid input."
 }
 ```
 
@@ -105,16 +93,6 @@ Response Body - Error:
 
 Method: `POST`
 Endpoint: `/attendances/image`
-
-Request Body:
-```json
-{
-    "date": "2025-mar-28",
-    "time": "08:00 AM",
-    "location": "Institut Teknologi Sumatera",
-    "url_image": "https://cloud.image/2025-mar-28.jpg"
-}
-```
 
 Request Body  `form-data`:
 | key      | type | value        |

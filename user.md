@@ -25,7 +25,7 @@ Response Body - Success:
     "data": {
         "name": "Syuhada Rantisi",
         "email": "oda@mail.com",
-        "nim": "122140092",
+        "nik": "122140092",
         "position": "Staff",
         "attendance": 100
     },

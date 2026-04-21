@@ -20,19 +20,23 @@ Endpoint: `/auth/register`
 Request Body:
 ```json
 {
-  "email": "oda@mail.com",
-  "password": "password123"
+    "name": "Syuhada Rantisi",
+    "email": "oda@mail.com",
+    "password": "password123",
+	"password_confirmation": "password123"
 }
 ```
 
 Response Body - Success:
 ```json
 {
-    "data": {
-        "name": "Syuhada Rantisi",
-        "email": "oda@mail.com"
-    },
-    "message": "Success create user!"
+	"success": true,
+	"data": {
+		"token": "<token>",
+		"name": "Syuhada Rantisi",
+		"email": "oda@mail.com"
+	},
+	"message": "Success create user!"
 }
 ```
 
@@ -60,25 +64,21 @@ Endpoint: `/auth/login`
 Request Body:
 ```json
 {
-  "email": "oda@mail.com",
-  "password": "password123"
+  "email": "test@example.com",
+  "password": "test123"
 }
 ```
 
 Response Body - Success:
 ```json
 {
-    "data": {
-        "access_token": "<access_token>",
-        "data": {
-            "email": "oda@mail.com",
-            "id": 1,
-            "profile_picture": null,
-            "username": "oda"
-        },
-        "refresh_token": "<refresh_token>"
-    },
-    "message": "Success login!"
+	"success": true,
+	"data": {
+		"token": "<token>",
+		"name": "Test User",
+		"email": "test@example.com"
+	},
+	"message": "Success login!"
 }
 ```
 
