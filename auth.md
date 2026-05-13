@@ -15,7 +15,7 @@ Base URL: `http://localhost:8080`
 ## 1. Register
 
 Method: `POST`
-Endpoint: `/auth/register`
+Endpoint: `/api/register`
 
 Request Body:
 ```json
@@ -59,7 +59,7 @@ Response Body - Error:
 ## 2. Login
 
 Method: `POST`
-Endpoint: `/auth/login`
+Endpoint: `/api/login`
 
 Request Body:
 ```json
@@ -101,7 +101,7 @@ Response Body - Error:
 ## 3. Logout
 
 Method: `DELETE`
-Endpoint: `/auth/logout`
+Endpoint: `/api/logout`
 Authorization: `Bearer <token>`
 
 Response Body - Success:

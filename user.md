@@ -16,18 +16,22 @@ Base URL: `http://localhost:8080`
 ## 1. Get User
 
 Method: `GET`
-Endpoint: `/users/{id}`
+Endpoint: `/api/user`
 Authorization: `Bearer <token>`
 
 Response Body - Success:
 ```json
 {
     "data": {
-        "name": "Syuhada Rantisi",
-        "email": "oda@mail.com",
+        "id": 4,
+		"role_id": 2
+        "name": "Test User",
+        "email": "test@mail.com",
+        "email_verified_at": null,
+		"created_at": "2026-04-27T18:13:06.000000Z",
+		"updated_at": "2026-04-27T18:13:06.000000Z",
+        "profile_picture": "http://localhost/storage/user1.png",
         "nik": "122140092",
-        "position": "Staff",
-        "attendance": 100
     },
     "message": "Success get user!"
 }
@@ -47,15 +51,15 @@ Response Body - Error:
 ## 2. Update User
 
 Method: `PATCH`
-Endpoint: `/users/{id}`
+Endpoint: `/api/user`
 Authorization: `Bearer <token>`
 
 Request Body:
 ```json
 {
-  "email": "oda@mail.com",
-  "name": "Muhammad Rayhan",
-  "nim": "123456789"
+  "email": "testupdate@mail.com",
+  "name": "Test Update",
+  "nik": "123456789",
 }
 ```
 
@@ -63,9 +67,15 @@ Response Body - Success:
 ```json
 {
     "data": {
-        "email": "oda@mail.com",
-        "name": "Muhammad Rayhan",
-        "nim": "123456789"
+		"id": 5,
+		"name": "Test Update",
+		"email": "testupdate@mail.com",
+		"email_verified_at": null,
+		"created_at": "2026-04-29T05:56:28.000000Z",
+		"updated_at": "2026-04-29T05:57:07.000000Z",
+		"profile_picture": null,
+		"nik": "123456789",
+		"role_id": 2
     },
     "message": "Success update user!"
 }
@@ -85,7 +95,7 @@ Response Body - Error:
 ## 3. Delete User
 
 Method: `DELETE`
-Endpoint: `/users/{id}`
+Endpoint: `/api/user`
 Authorization: `Bearer <token>`
 
 
@@ -111,7 +121,7 @@ Response Body - Error:
 ## 4. Get All User (For Admin)
 
 Method: `GET`
-Endpoint: `/users`
+Endpoint: `/api/users`
 Authorization: `Bearer <token>`
 
 Response Body - Success:

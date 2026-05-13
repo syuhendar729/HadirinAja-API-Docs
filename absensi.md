@@ -15,25 +15,29 @@ Base URL: `http://localhost:8080`
 ## 1. Get Attendance
 
 Method: `GET`
-Endpoint: `/attendances`
+Endpoint: `/api/attendance`
 Authorization: `Bearer <token>`
 
 Response Body - Success:
 ```json
-// H: hadir
-// I: izin
-// A: tidak hadir
+// HADIR, IZIN, or ALPHA
+
 {
-    "data": {
-        "2025-11-01": "HADIR",
-        "2025-11-02": "HADIR",
-        "2025-11-03": "ALPHA",
-        "2025-11-04": "IZIN",
-        // ...
-        "2026-03-29": "HADIR",
-    },
+    "data": [
+        {
+			"id": 1,
+            "created_at": "2025-11-01",
+            "status": "HADIR",
+        },
+        {
+			"id": 2,
+            "created_at": "2025-11-02",
+            "status": "ALPHA",
+        }
+    ],
     "message": "Success get attendance!"
 }
+
 ```
 
 Response Body - Error:
@@ -47,10 +51,35 @@ Response Body - Error:
 
 ---
 
-## 2. Create Attendance
+## 2. Get Attendance Detail
+
+Method: `GET`
+Endpoint: `/api/attendance/<id>`
+Authorization: `Bearer <token>`
+
+Response Body - Success:
+
+```json
+{
+    "data": {
+        "created_at": "2025-11-01",
+        "status": "HADIR",
+        "location": "Institut Teknologi Sumatera",
+        "notes": "Terlambat tapi masih datenng",
+        "url_image": "https://cloud.image/2025-mar-28.jpg"
+    }
+    "message": "Success get attendance!"
+}
+
+```
+
+
+---
+
+## 3. Create Attendance
 
 Method: `POST`
-Endpoint: `/attendances`
+Endpoint: `/api/attendance`
 
 Request Body:
 ```json
@@ -65,6 +94,7 @@ Response Body - Success:
 ```json
 {
 	"data": {
+        "id": 1,
 		"status": "HADIR",
 		"location": "Institut Teknologi Sumatera",
 		"notes": "Hadir tapi terlambat"
@@ -92,7 +122,7 @@ Response Body - Error:
 ## 3. Upload Picture
 
 Method: `POST`
-Endpoint: `/attendances/image`
+Endpoint: `/api/attendance/image`
 
 Request Body  `form-data`:
 | key      | type | value        |
