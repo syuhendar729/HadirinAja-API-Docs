@@ -7,7 +7,7 @@ Base URL: `http://localhost:8080`
 | Method | Endpoint              | Description                                 |
 |--------|-----------------------|---------------------------------------------|
 | GET    | /api/attendance          | Get all data attendances from current user  |
-| GET    | /api/attendance/<id>          | Get detail data from attendance  |
+| GET    | /api/attendance/:id          | Get detail data from attendance  |
 | POST   | /api/attendance          | Send attendance in current time             |
 | POST   | /api/attendance/image    | Upload attendance picture                   |
 
