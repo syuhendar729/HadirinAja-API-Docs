@@ -6,9 +6,9 @@ Base URL: `http://localhost:8080`
 
 | Method | Endpoint       | Description                  |
 |--------|----------------|------------------------------|
-| POST   | /auth/register | Register new user            |
-| POST   | /auth/login    | Login user                   |
-| DELETE | /auth/logout   | Logout user                  |
+| POST   | /api/register | Register new user            |
+| POST   | /api/login    | Login user                   |
+| DELETE | /api/logout   | Logout user                  |
 
 ---
 

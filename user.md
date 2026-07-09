@@ -6,10 +6,9 @@ Base URL: `http://localhost:8080`
 
 | Method | Endpoint       | Description                  |
 |--------|----------------|------------------------------|
-| GET    | /users/{id}    | Get a specific user          |
-| PATCH  | /users/{id}    | Update user by id            |
-| DELETE | /users/{id}    | Remove a user                |
-| GET    | /users         | Get all users                |
+| GET    | /api/user    | Get a specific user          |
+| PATCH  | /api/user    | Update user by id            |
+| DELETE | /api/user    | Remove a user                |
 
 ---
 
@@ -125,56 +124,5 @@ Response Body - Error:
 }
 ```
 
----
 
-## 4. Get All User (For Admin)
-
-Method: `GET`
-Endpoint: `/api/users`
-Authorization: `Bearer <token>`
-
-Response Body - Success:
-```json
-{
-    "data": [
-        {
-            "name": "Syuhada Rantisi",
-            "email": "oda@mail.com",
-            "nim": "122140092",
-            "position": "Staff",
-            "attendance": 100,
-            "total" : {
-                "present": 100,
-                "late": 100,
-                "leave": 100,
-                "absent": 100,
-            },
-
-        },
-        {
-            "name": "M Rayhan",
-            "email": "ray@mail.com",
-            "nim": "122140093",
-            "position": "Staff",
-            "attendance": 100,
-            "total" : {
-                "present": 100,
-                "late": 100,
-                "leave": 100,
-                "absent": 100,
-            },
-        },
-    ],
-    "message": "Success get all user!"
-}
-```
-
-Response Body - Error:
-```json
-// user unauthorized
-{
-    "data": [],
-    "message": "Failed get user! User unauthorized."
-}
-```
 
