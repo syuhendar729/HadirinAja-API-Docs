@@ -32,6 +32,15 @@ Response Body - Success:
 		"updated_at": "2026-04-27T18:13:06.000000Z",
         "profile_picture": "http://localhost/storage/user1.png",
         "nik": "122140092",
+        "position": "Staff",
+        "phone": "Staff",
+        "alamat": "Gg.H.Sarmili No.39",
+        "total" : {
+            "present": 100,
+            "late": 100,
+            "leave": 100,
+            "absent": 100,
+        },
     },
     "message": "Success get user!"
 }
@@ -133,14 +142,27 @@ Response Body - Success:
             "email": "oda@mail.com",
             "nim": "122140092",
             "position": "Staff",
-            "attendance": 100
+            "attendance": 100,
+            "total" : {
+                "present": 100,
+                "late": 100,
+                "leave": 100,
+                "absent": 100,
+            },
+
         },
         {
             "name": "M Rayhan",
             "email": "ray@mail.com",
             "nim": "122140093",
             "position": "Staff",
-            "attendance": 100
+            "attendance": 100,
+            "total" : {
+                "present": 100,
+                "late": 100,
+                "leave": 100,
+                "absent": 100,
+            },
         },
     ],
     "message": "Success get all user!"

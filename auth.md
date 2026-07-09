@@ -120,3 +120,133 @@ Response Body - Error:
     "message": "Failed logout! User unauthorized."
 }
 ```
+
+---
+
+## 4. Update Password
+
+Method: `PATCH`
+Endpoint: `/api/update-password`
+Authorization: `Bearer <token>`
+
+Request Body:
+```json
+{
+  "password": "test123",
+  "new_password": "123test",
+  "new_password_confirmed": "123test"
+}
+```
+
+Response Body - Success:
+```json
+{
+	"data": {},
+	"message": "Success update password!"
+}
+```
+
+Response Body - Error:
+```json
+{
+    "data": {},
+    "message": "Failed update password! Wrong password."
+}
+```
+
+Response Body - Error:
+```json
+{
+    "data": {},
+    "message": "Failed update password! Invalid confirmed password."
+}
+```
+
+Response Body - Error:
+```json
+{
+    "data": {},
+    "message": "Failed update password! User unauthorized."
+}
+```
+
+
+## 5. Forgot Password
+
+Method: `POST`
+Endpoint: `/api/forgot-password`
+
+Request Body:
+```json
+{
+  "email": "test@mail.com"
+}
+```
+
+Response Body - Success:
+```json
+{
+	"data": {},
+	"message": "Success send link reset password to email!"
+}
+```
+
+Response Body - Error:
+```json
+{
+	"data": {},
+	"message": "Failed send link reset password! Email not found."
+}
+```
+
+
+---
+
+## 6. Admin Login
+
+
+Method: `POST`
+Endpoint: `/api/admin-login`
+
+Request Body:
+```json
+{
+  "email": "admin@example.com",
+  "password": "admin123"
+}
+```
+
+Response Body - Success:
+```json
+{
+	"success": true,
+	"data": {
+		"token": "<token>",
+		"name": "Admin User",
+		"email": "admin@example.com"
+	},
+	"message": "Success login!"
+}
+```
+
+Response Body - Error:
+```json
+// user not registered
+{
+    "data": [],
+    "message": "Failed login! User not registered."
+}
+// if wrong password
+{
+    "data": [],
+    "message": "Failed login! Wrong password."
+}
+// if not admin
+{
+    "data": [],
+    "message": "Failed login! User unauthorized."
+}
+
+```
+
+

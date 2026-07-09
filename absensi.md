@@ -6,9 +6,9 @@ Base URL: `http://localhost:8080`
 
 | Method | Endpoint              | Description                                 |
 |--------|-----------------------|---------------------------------------------|
-| GET    | /attendances          | Get all data attendances from current user  |
-| POST   | /attendances          | Send attendance in current time             |
-| POST   | /attendances/image    | Upload attendance picture                   |
+| GET    | /attendance          | Get all data attendances from current user  |
+| POST   | /attendance          | Send attendance in current time             |
+| POST   | /attendance/image    | Upload attendance picture                   |
 
 ---
 
@@ -20,19 +20,29 @@ Authorization: `Bearer <token>`
 
 Response Body - Success:
 ```json
-// HADIR, IZIN, or ALPHA
+// PRESENT, LATE, LEAVE, or ABSENT
 
 {
     "data": [
         {
 			"id": 1,
             "created_at": "2025-11-01",
-            "status": "HADIR",
+            "status": "PRESENT",
         },
         {
 			"id": 2,
             "created_at": "2025-11-02",
-            "status": "ALPHA",
+            "status": "LATE",
+        },
+        {
+			"id": 3,
+            "created_at": "2025-11-03",
+            "status": "LEAVE",
+        },
+        {
+			"id": 4,
+            "created_at": "2025-11-04",
+            "status": "ABSENT",
         }
     ],
     "message": "Success get attendance!"
@@ -63,7 +73,7 @@ Response Body - Success:
 {
     "data": {
         "created_at": "2025-11-01",
-        "status": "HADIR",
+        "status": "PRESENT",
         "location": "Institut Teknologi Sumatera",
         "notes": "Terlambat tapi masih datenng",
         "url_image": "https://cloud.image/2025-mar-28.jpg"
@@ -84,9 +94,13 @@ Endpoint: `/api/attendance`
 Request Body:
 ```json
 {
-    "status": "HADIR",
+    "status": "LATE",
     "location": "Institut Teknologi Sumatera",
     "notes": "Hadir tapi terlambat",
+    "url_image": "https://cloud.image/2025-mar-28.jpg",
+    "latitude": -5.360000,
+    "longitude": 105.315000
+
 }
 ```
 
@@ -95,9 +109,12 @@ Response Body - Success:
 {
 	"data": {
         "id": 1,
-		"status": "HADIR",
+		"status": "LATE",
 		"location": "Institut Teknologi Sumatera",
-		"notes": "Hadir tapi terlambat"
+		"notes": "Hadir tapi terlambat",
+        "url_image": "https://cloud.image/2025-mar-28.jpg",
+        "latitude": -5.360000,
+        "longitude": 105.315000
 	},
 	"message": "Success create attendance!"
 }
@@ -108,12 +125,12 @@ Response Body - Error:
 // user unauthorized
 {
     "data": [],
-    "message": "Failed attendance user! User unauthorized."
+    "message": "Failed create attendance! User unauthorized."
 }
 // invalid input
 {
     "data": [],
-    "message": "Failed attendance user! Invalid input."
+    "message": "Failed create attendance! Invalid input."
 }
 ```
 
